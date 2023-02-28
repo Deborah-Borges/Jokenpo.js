@@ -6,7 +6,7 @@ function placar(params) {
         alert('Você ganha')
 
     } else if (contMaquina === 2){
-        alert('Máquina ganha')
+        alert('Oponente ganha')
     }      
 }
 
@@ -56,19 +56,25 @@ function verificarGanhador(usuario, oponente) {
 
 }
 
+function validarEntrada(escolhaUsuario) {
+    if(escolhaUsuario === 1|| escolhaUsuario === 2|| escolhaUsuario === 3) {
+        return true
+    } else {
+        alert('Jogada inválida, tente novamente')
+        return false
+    }
+
+}
+
+
 function playGame() {
     
     let usuario = Number(prompt('escolha uma opção: 1 = pedra, 2 = papel, 3 = tessoura'))
+    validarEntrada(usuario)
+
     console.log('jogada usuário' , usuario)
     let oponente = Math.floor(Math.random()* 3) + 1
     console.log('jogada pc' , oponente)
-
-    //Essa parte ainda presico arrumar!
-    // if (usuario != 1) {
-    //     alert('Jogada inválida, tente novamente')
-    //     playGame()
-    // }
-
 
     let verificarG = verificarGanhador(usuario, oponente) 
     console.log('ponto usuário' ,contUsuario)
@@ -79,8 +85,9 @@ function playGame() {
         playAgain() 
          
     }
-    console.log('verificar' , verificarG)
+    
 }
+
     
 
 function startGame(params) {
